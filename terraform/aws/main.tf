@@ -74,7 +74,7 @@ resource "aws_instance" "web1" {
 }
 
 resource "aws_instance" "web2" {
-  ami           = "ami-0c55b159cbfafe1f0" # Substitua com a AMI apropriada
+  ami           = "ami-0230bd60aa48260c6" 
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.public2.id
   vpc_security_group_ids = [aws_security_group.allow_web.id]

@@ -81,7 +81,7 @@ resource "azurerm_linux_virtual_machine" "main" {
 
   admin_ssh_key {
     username   = "adminuser"
-    public_key = file("C:\Users\mateu\.ssh\id_rsa.pub")
+    public_key = file("C:/Users/mateu/.ssh/id_rsa.pub")
   }
 
   custom_data = filebase64("${path.module}/cloud-init.txt")

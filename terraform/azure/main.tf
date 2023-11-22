@@ -59,6 +59,12 @@ resource "azurerm_public_ip" "main" {
   allocation_method   = "Dynamic"
 }
 
+variable "ssh_key" {
+  description = "SSH Public Key"
+  type        = string
+  default     = ""
+}
+
 resource "azurerm_linux_virtual_machine" "main" {
   name                = "myVM"
   resource_group_name = azurerm_resource_group.main.name
@@ -81,7 +87,7 @@ resource "azurerm_linux_virtual_machine" "main" {
 
   admin_ssh_key {
     username   = "adminuser"
-    public_key = file("C:/Users/mateu/.ssh/id_rsa.pub")
+    public_key = var.ssh_key
   }
 
   custom_data = filebase64("${path.module}/cloud-init.txt")

@@ -110,12 +110,11 @@ resource "azurerm_lb_backend_address_pool" "main" {
 }
 
 resource "azurerm_lb_probe" "main" {
-  resource_group_name = azurerm_resource_group.main.name
-  loadbalancer_id     = azurerm_lb.main.id
-  name                = "myHealthProbe"
-  protocol            = "Http"
-  request_path        = "/"
-  port                = 80
+  loadbalancer_id = azurerm_lb.main.id
+  name            = "myHealthProbe"
+  protocol        = "Http"
+  request_path    = "/"
+  port            = 80
 }
 
 resource "azurerm_lb_rule" "main" {

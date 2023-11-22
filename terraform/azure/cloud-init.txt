@@ -1,0 +1,9 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+packages:
+  - nginx
+runcmd:
+  - systemctl start nginx
+  - systemctl enable nginx
+  - echo 'Hello from Azure VM deployed via Terraform!' > /var/www/html/index.html

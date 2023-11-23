@@ -88,8 +88,8 @@ jobs:
       run : terraform -chdir=./terraform/azure validate
 
     - name: Step 07 - Terraform Plan
-      # run : terraform -chdir=./terraform/azure plan -input=false -out tfplan
-      run : terraform -chdir=./terraform/azure plan -input=false -destroy -out tfplan
+      run : terraform -chdir=./terraform/azure plan -input=false -out tfplan
+      # run : terraform -chdir=./terraform/azure plan -input=false -destroy -out tfplan
       env:
         TF_VAR_ssh_key: ${{ secrets.SSH_KEY }}
 

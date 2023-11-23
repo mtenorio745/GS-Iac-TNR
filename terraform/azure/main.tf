@@ -2,6 +2,12 @@ provider "azurerm" {
   features {}
 }
 
+variable "ssh_key" {
+  description = "SSH Public Key"
+  type        = string
+  default     = ""
+}
+
 resource "azurerm_resource_group" "main" {
   name     = "myResourceGroup"
   location = "East US"
@@ -57,12 +63,6 @@ resource "azurerm_public_ip" "main" {
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
   allocation_method   = "Dynamic"
-}
-
-variable "ssh_key" {
-  description = "SSH Public Key"
-  type        = string
-  default     = ""
 }
 
 resource "azurerm_linux_virtual_machine" "main" {

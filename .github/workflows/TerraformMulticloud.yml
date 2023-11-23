@@ -92,6 +92,8 @@ jobs:
 
     - name: Step 08 - Terraform Apply
       run : terraform -chdir=./terraform/azure apply -auto-approve -input=false tfplan
+      env:
+        TF_VAR_ssh_key: ${{ secrets.SSH_KEY }}
 
     - name: Step 09 - Terraform Show
       run : terraform -chdir=./terraform/azure show

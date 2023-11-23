@@ -62,7 +62,7 @@ resource "azurerm_public_ip" "main" {
   name                = "myPublicIP"
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
-  allocation_method   = "Dynamic"
+  allocation_method   = "Static"
 }
 
 resource "azurerm_linux_virtual_machine" "main" {
@@ -131,5 +131,3 @@ resource "azurerm_lb_rule" "main" {
 output "public_ip_address" {
   value = azurerm_public_ip.main.ip_address
 }
-
-
